@@ -2,4 +2,4 @@
 set -e
 
 cat vimrc.vim > ~/.vimrc
-echo "appended vimrc.vim to local .vimrc"
+echo "overwrote local .vimrc to vimrc.vim"
