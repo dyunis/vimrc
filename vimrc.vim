@@ -4,6 +4,7 @@ set tabstop=4 " set tab to 4 spaces
 set shiftwidth=4 " set size of indent to 4 spaces
 set softtabstop=4 " set number of columns for tab
 set expandtab " make tab key expand \t to spaces
+set autoindent " indent new line to same level as previous line
 set wrap " wrap text to new line after exceeding [textwidth]
 set textwidth=79 " line length before wrapping
 set colorcolumn=81 " display a marker column at [textwidth]
