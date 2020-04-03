@@ -28,8 +28,9 @@ set number " set absolute line numbering (outer number)
 " set relativenumber " set relative line numbering (inner numbers)
 
 " remap escape key, tab to switch between delimiters
-inoremap ;; <Esc>
-vnoremap ;; <Esc>
+" need a remap that works nicely with semicolons
+inoremap <C-L> <Esc>
+vnoremap <C-L> <Esc>
 nnoremap <tab> %
 vnoremap <tab> % 
 
