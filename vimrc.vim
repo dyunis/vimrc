@@ -4,7 +4,7 @@ set tabstop=4 " set tab to 4 spaces
 set shiftwidth=4 " set size of indent to 4 spaces
 set softtabstop=4 " set number of columns for tab
 
-"for html/js, 2 space tabs
+" for html/js, 2 space tabs
 autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
