@@ -28,11 +28,12 @@ set statusline+=\ %-3.L "total lines in file
 
 " syntax and colors
 syntax on " enable syntax highlighting
+set incsearch " enable incremental search highlighting as you type
 set hlsearch " enable last search highlighting
 colorscheme dim  " colorscheme in .vim/colors/
 set background=dark " colorscheme mode
-set number " set absolute line numbering (outer number)
-" set relativenumber " set relative line numbering (inner numbers)
+set number " set absolute line numbering (outer)
+set relativenumber " set relative line numbering (inner) to replace visual mode
 
 " remap escape key, tab to switch between delimiters
 " need a remap that works nicely with semicolons
@@ -54,9 +55,3 @@ vnoremap <F1> <Esc>
 
 " unset the last search pattern highlighting in normal mode
 nnoremap <CR> :noh<CR>
-
-" remap navigating between splits to get rid of ctrl-w leader
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
