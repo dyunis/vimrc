@@ -4,12 +4,16 @@ set tabstop=4 " set tab to 4 spaces
 set shiftwidth=4 " set size of indent to 4 spaces
 set softtabstop=4 " set number of columns for tab
 
-" for html/js/css/cpp/shell, 2 space tabs
-autocmd Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype sh setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" for html/js/css/cpp/shell/latex, 2 space tabs
+autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead,BufNewFile *.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead,BufNewFile *.js setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead,BufNewFile *.cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead,BufNewFile *.sh setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" for tex files, compile pdf on write
+" this particular version stops compilation if there's an error
+autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' %" | redraw!
 
 set expandtab " make tab key expand \t to spaces
 set autoindent " indent new line to same level as previous line
@@ -35,10 +39,10 @@ set background=dark " colorscheme mode
 set number " set absolute line numbering (outer)
 set relativenumber " set relative line numbering (inner) to replace visual mode
 
-" remap escape key, tab to switch between delimiters
-" need a remap that works nicely with semicolons
+" remap escape key, needs to work nicely with semicolons
 inoremap <C-L> <Esc>
 vnoremap <C-L> <Esc>
+" remap tab to switch between delimiters
 nnoremap <tab> %
 vnoremap <tab> % 
 
