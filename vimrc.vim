@@ -46,16 +46,11 @@ vnoremap <C-L> <Esc>
 nnoremap <tab> %
 vnoremap <tab> % 
 
-" disable arrow key navigation in insert mode
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-" disable misclicking f1 and seeing help all the time while trying to escape
-inoremap <F1> <Esc>
-nnoremap <F1> <Esc>
-vnoremap <F1> <Esc>
-
 " unset the last search pattern highlighting in normal mode
 nnoremap <CR> :noh<CR>
+
+" netrw file browser settings
+let g:netrw_banner=0 " disables top banner of file browser
+let g:netrw_altv=1 " open splits to the right (press v to open a file in a split)
+let g:netrw_liststyle=3 " opens as tree view
+" :help netrw
