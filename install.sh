@@ -10,8 +10,13 @@ if [ ! -d ~/.vim/colors ]; then
   mkdir -p ~/.vim/colors
 fi
 
+# TODO: make commandline args for copying colors, ftplugin, tmux.conf, snippets
 cp colors/* ~/.vim/colors
-echo "copied colors to local ~/.vim/colors"
+echo "copied contents of colors to local ~/.vim/colors"
+cp ftplugin/* ~/.vim/ftplugin
+echo "copied contents of ftplugin to local ~/.vim/ftplugin"
+cp -R snippets/* ~/.vim/snippets
+echo "copied contents of snippets to local ~/.vim/snippets"
 
 echo "appending to ~/.tmux.conf (if it exists) to make tmux perform correctly"
 if [ ! -f ~/.tmux.conf ]; then

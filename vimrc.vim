@@ -4,21 +4,18 @@ set tabstop=4 " set tab to 4 spaces
 set shiftwidth=4 " set size of indent to 4 spaces
 set softtabstop=4 " set number of columns for tab
 
-" for html/js/css/cpp/shell/latex, 2 space tabs
-autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd BufRead,BufNewFile *.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd BufRead,BufNewFile *.js setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd BufRead,BufNewFile *.cpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd BufRead,BufNewFile *.sh setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd BufRead,BufNewFile *.tex setlocal tabstop=2 shiftwidth=2 softtabstop=2
-" for tex files, compile pdf on write
-" this particular version stops compilation if there's an error
-autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' %" | redraw!
+" different filetype options
+filetype plugin on " enable searching for filetype specific things
+autocmd BufNewFile,BufReadPre * let b:did_ftplugin = 1 " get rid of vim defaults
+" filetypes are in $VIM/ftplugin, or ~/.vim/ftplugin
+" currently configs for python/html/js/css/cpp/shell/latex 
 
 set expandtab " make tab key expand \t to spaces
 set autoindent " indent new line to same level as previous line
 set wrap " wrap text to new line after exceeding [textwidth]
 set colorcolumn=80 " display a marker column at [textwidth]
+set wildmenu " when entering in vim command line, press tab to see autocomplete options
+set path+=** " tab completion for files in subdirs of current directory
 
 "statusline config
 set laststatus=2 " display statusline always
@@ -42,15 +39,14 @@ set relativenumber " set relative line numbering (inner) to replace visual mode
 " remap escape key, needs to work nicely with semicolons
 inoremap <C-L> <Esc>
 vnoremap <C-L> <Esc>
-" remap tab to switch between delimiters
-nnoremap <tab> %
-vnoremap <tab> % 
 
 " unset the last search pattern highlighting in normal mode
 nnoremap <CR> :noh<CR>
 
 " netrw file browser settings
 let g:netrw_banner=0 " disables top banner of file browser
-let g:netrw_altv=1 " open splits to the right (press v to open a file in a split)
+let g:netrw_altv=1 " open vertical splits to the right (press v to open)
+let g:netrw_alto=1 " open horizontal splits below browser (press o to open)
 let g:netrw_liststyle=3 " opens as tree view
+let g:netrw_winsize=85 " 85% new window size for splits opened from file browser
 " :help netrw
