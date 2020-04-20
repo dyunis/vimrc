@@ -42,8 +42,19 @@ inoremap kj <Esc>
 vnoremap jk <Esc>
 vnoremap kj <Esc>
 
+" if a very long line wraps, move visually without skipping the wrapped bit
+nnoremap j gj
+nnoremap k gk
+
+" highlight last inserted text
+" gv already displays last visual selection
+nnoremap gV `[v`]
+
 " unset the last search pattern highlighting in normal mode with return
 nnoremap <CR> :noh<CR>
+
+" remap leader from \ to , (easier to reach)
+let mapleader=","
 
 " netrw file browser settings
 let g:netrw_banner=0 " disables top banner of file browser

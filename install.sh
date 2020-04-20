@@ -18,14 +18,18 @@ echo "copied contents of ftplugin to local ~/.vim/ftplugin"
 cp -R snippets/* ~/.vim/snippets
 echo "copied contents of snippets to local ~/.vim/snippets"
 
-echo "appending to ~/.tmux.conf (if it exists) to make tmux perform correctly"
-echo "# makes tmux colors same as base terminal" >> tmux.conf
-echo "set -g default-terminal \"${TERM}\"" >> tmux.conf
 if [ ! -f ~/.tmux.conf ]; then
-  cp tmux.conf ~/.tmux.conf
+  echo "~/.tmux.conf does not exist, using tmux.conf"
+  echo "# the following added by dyunis/vimrc/install.sh" > ~/.tmux.conf
 else
-  cat tmux.conf >> ~/.tmux.conf
+  echo "appending tmux.conf to ~/.tmux.conf"
+  echo "" >> ~/.tmux.conf
+  echo "# the following added by dyunis/vimrc/install.sh" >> ~/.tmux.conf
 fi
+cat tmux.conf >> ~/.tmux.conf
+echo "" >> ~/.tmux.conf
+echo "# makes tmux colors same as base terminal" >> ~/.tmux.conf
+echo "set -g default-terminal \"${TERM}\"" >> ~/.tmux.conf
 echo "appended to ~/.tmux.conf"
 
 echo "finished all"

@@ -7,9 +7,6 @@ setlocal softtabstop=2
 " redraw redraws the screen to flush command output
 autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' %" | redraw!
 
-" TODO: make vim command for full build: pdflatex, bibtex, pdflatex, pdflatex
-" autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' %; bibtex -output-directory '%:p:h' '%:r'.aux; pdflatex -output-directory '%:p:h' %; pdflatex -output-directory '%:p:h' %" | redraw!
-
 " latex snippets
 " for template document
 nnoremap ,latex :-1read $HOME/.vim/snippets/latex/template<CR>7ji
@@ -21,3 +18,13 @@ nnoremap ,mm :-1read $HOME/.vim/snippets/latex/nolabel_math<CR>2la
 nnoremap ,it :-1read $HOME/.vim/snippets/latex/itemize<CR>jA
 " for enumerate
 nnoremap ,en :-1read $HOME/.vim/snippets/latex/enumerate<CR>jA
+
+" works similar to the autocmd above, but latex needs pdflatex, bibtex, pdflatex
+" pdflatex in order to format bibliographies correctly, takes a while so
+" encapsulate in a function
+function BibliographyCompilation() 
+    silent! execute "!pdflatex -output-directory '%:p:h' %; bibtex -output-directory '%:p:h' '%:r'.aux; pdflatex -output-directory '%:p:h' %; pdflatex -output-directory '%:p:h' %" | redraw!
+endfunction
+
+" call function with leader key
+nnoremap ,b :call BibliographyCompilation()<CR>
