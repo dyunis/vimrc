@@ -5,16 +5,23 @@ echo "copying vimrc.vim"
 cat vimrc.vim > ~/.vimrc
 echo "overwrote ~/.vimrc with vimrc.vim"
 
-echo "copying colors"
+# TODO: make commandline args for copying colors, ftplugin, tmux.conf, snippets
+
 if [ ! -d ~/.vim/colors ]; then
   mkdir -p ~/.vim/colors
 fi
-
-# TODO: make commandline args for copying colors, ftplugin, tmux.conf, snippets
 cp colors/* ~/.vim/colors
 echo "copied contents of colors to local ~/.vim/colors"
+
+if [! -d ~/.vim/ftplugin ]; then
+  mkdir -p ~/.vim/ftplugin
+fi
 cp ftplugin/* ~/.vim/ftplugin
 echo "copied contents of ftplugin to local ~/.vim/ftplugin"
+
+if [! -d ~/.vim/snippets ]; then
+  mkdir -p ~/.vim/snippets
+fi
 cp -R snippets/* ~/.vim/snippets
 echo "copied contents of snippets to local ~/.vim/snippets"
 
