@@ -34,13 +34,15 @@ set hlsearch " enable last search highlighting
 colorscheme dim  " colorscheme in .vim/colors/
 set background=dark " colorscheme mode
 set number " set absolute line numbering (outer)
-set relativenumber " set relative line numbering (inner) to replace visual mode
+" set relativenumber " set relative line numbering (inner) to replace visual mode
 
 " remap escape key, needs to work nicely with semicolons
-inoremap <C-L> <Esc>
-vnoremap <C-L> <Esc>
+inoremap jk <Esc>
+inoremap kj <Esc>
+vnoremap jk <Esc>
+vnoremap kj <Esc>
 
-" unset the last search pattern highlighting in normal mode
+" unset the last search pattern highlighting in normal mode with return
 nnoremap <CR> :noh<CR>
 
 " netrw file browser settings
