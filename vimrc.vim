@@ -18,6 +18,7 @@ set wrap " wrap text to new line after exceeding [textwidth]
 set colorcolumn=80 " display a marker column at [textwidth]
 set wildmenu " when entering in vim command line, press tab to see autocomplete options
 set path+=** " tab completion for files in subdirs of current directory
+set formatoptions+=cro " enable autocommenting after o in normal, <Enter> in insert, comment wrapping
 
 "statusline config
 set laststatus=2 " display statusline always
@@ -56,7 +57,22 @@ nnoremap gV `[v`]
 nnoremap <CR> :noh<CR>
 
 " remap leader from \ to , (easier to reach)
-let mapleader=","
+let g:mapleader=","
+
+" line commenting macro
+function CommentLine ()
+    let cmd = ".,.+" . v:count . " norm 0i" . b:line_comment_symbol . " "
+    execute cmd
+endfunction
+
+function UncommentLine ()
+    let cmd = ".,.+" . v:count . " norm 02x"
+    execute cmd
+endfunction
+
+" the <C-U> is needed for some kind of issue when doing multiple lines ??
+nnoremap <leader>cc :<C-U> call CommentLine()<CR>
+nnoremap <leader>cu :<C-U> call UncommentLine()<CR>
 
 " netrw file browser settings
 let g:netrw_banner=0 " disables top banner of file browser

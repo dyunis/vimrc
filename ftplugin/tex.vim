@@ -20,6 +20,9 @@ nnoremap ,it :-1read $HOME/.vim/snippets/latex/itemize<CR>jA
 " for enumerate
 nnoremap ,en :-1read $HOME/.vim/snippets/latex/enumerate<CR>jA
 
+" comment symbol for commenting macro
+let b:line_comment_symbol="%"
+
 " works similar to the autocmd above, but latex needs pdflatex, bibtex, pdflatex
 " pdflatex in order to format bibliographies correctly, takes a while so
 " encapsulate in a function
