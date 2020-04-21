@@ -9,8 +9,8 @@ autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' 
 
 " latex snippets
 
-" latex template
-nnoremap ,tplt :-1read $HOME/.vim/snippets/latex/template<CR>5j
+" latex skeleton
+nnoremap ,skl :-1read $HOME/.vim/snippets/latex/skeleton<CR>5j
 " for align*
 nnoremap ,al :-1read $HOME/.vim/snippets/latex/align<CR>ji
 " for anonymous equations (\[ \])
@@ -23,8 +23,12 @@ nnoremap ,en :-1read $HOME/.vim/snippets/latex/enumerate<CR>jA
 " works similar to the autocmd above, but latex needs pdflatex, bibtex, pdflatex
 " pdflatex in order to format bibliographies correctly, takes a while so
 " encapsulate in a function
-function BibliographyCompilation() 
+function CompileWithBibliography() 
     silent! execute "!pdflatex -output-directory '%:p:h' %; bibtex '%:r'.aux; pdflatex -output-directory '%:p:h' %; pdflatex -output-directory '%:p:h' %" | redraw!
+endfunction
+
+function CleanBibliography()
+   silent! execute "!rm '%:r'.bbl; rm '%:r'.blg" | redraw! 
 endfunction
 
 function OpenPDF()
@@ -32,5 +36,6 @@ function OpenPDF()
 endfunction
 
 " call function with leader key
-nnoremap ,b :call BibliographyCompilation()<CR>
+nnoremap ,b :call CompileWithBibliography()<CR>
+nnoremap ,cb :call CleanBibliography()<CR>
 nnoremap ,o :call OpenPDF()<CR>
