@@ -1,10 +1,10 @@
 \documentclass{article}
 \usepackage{class_style}
-\bibliography{dy_bib}
-\bibliographystyle{plain}
 
 \begin{document}
 
 
 
+\bibliography{dy_bib}
+\bibliographystyle{plain}
 \end{document}

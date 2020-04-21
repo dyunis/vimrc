@@ -9,6 +9,8 @@ filetype plugin on " enable searching for filetype specific things
 autocmd BufNewFile,BufReadPre * let b:did_ftplugin = 1 " get rid of vim defaults
 " filetypes are in $VIM/ftplugin, or ~/.vim/ftplugin
 " currently configs for python/html/js/css/cpp/shell/latex 
+" the below is because on opening a new .tex, vim thinks it's plaintex
+let g:tex_flavor='latex'
 
 set expandtab " make tab key expand \t to spaces
 set autoindent " indent new line to same level as previous line
