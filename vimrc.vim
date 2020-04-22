@@ -20,6 +20,7 @@ set wildmenu " when entering in vim command line, press tab to see autocomplete 
 set path+=** " tab completion for files in subdirs of current directory
 set formatoptions+=cro " enable autocommenting after o in normal, <Enter> in insert, comment wrapping
 set clipboard=unnamed " sync vim and system clipboard which is typically "+y 
+set backspace=indent,eol,start " backspace over everything in insert mode
 
 "statusline config
 set laststatus=2 " display statusline always
