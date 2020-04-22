@@ -22,7 +22,7 @@ set path+=** " tab completion for files in subdirs of current directory
 set formatoptions+=cro " enable autocommenting after o in normal, <Enter> in insert, comment wrapping
 set clipboard=unnamed " sync vim and system clipboard which is typically "+y 
 set backspace=indent,eol,start " backspace over everything in insert mode
-set tags=./tags " vim will search for tags in current dir, then in dir above, all the way up to root
+set tags=./tags; " vim will search for tags in current dir, then in dir above, all the way up to root
 
 "statusline config
 set laststatus=2 " display statusline always
