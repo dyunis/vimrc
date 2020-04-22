@@ -23,19 +23,22 @@ nnoremap <leader>en :-1read $HOME/.vim/snippets/latex/enumerate<CR>jA
 " comment symbol for commenting macro
 let b:left_comment_symbol="%"
 
+nnoremap <buffer> <leader>cc :<C-U> call CommentLine()<CR>
+nnoremap <buffer> <leader>cu :<C-U> call UncommentLine()<CR>
+
 " works similar to the autocmd above, but latex needs pdflatex, bibtex, pdflatex
 " pdflatex in order to format bibliographies correctly, takes a while so
 " encapsulate in a function
-function CompileWithBibliography() 
-    silent! execute "!pdflatex -output-directory '%:p:h' %; bibtex '%:r'.aux; pdflatex -output-directory '%:p:h' %; pdflatex -output-directory '%:p:h' %" | redraw!
+function! CompileWithBibliography() 
+  silent! execute "!pdflatex -output-directory '%:p:h' %; bibtex '%:r'.aux; pdflatex -output-directory '%:p:h' %; pdflatex -output-directory '%:p:h' %" | redraw!
 endfunction
 
-function RemoveBibliography()
-   silent! execute "!rm '%:r'.bbl; rm '%:r'.blg" | redraw! 
+function! RemoveBibliography()
+  silent! execute "!rm '%:r'.bbl; rm '%:r'.blg" | redraw! 
 endfunction
 
-function OpenPDF()
-    silent! execute "!open '%:r'.pdf" | redraw!
+function! OpenPDF()
+  silent! execute "!open '%:r'.pdf" | redraw!
 endfunction
 
 " call function with leader key

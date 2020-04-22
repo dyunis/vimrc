@@ -59,7 +59,11 @@ nnoremap <CR> :noh<CR>
 " remap leader from \ to , (easier to reach)
 let g:mapleader=","
 
+" base comment symbol
+let b:left_comment_symbol="//"
+
 " the <C-U> is needed for some kind of issue when doing multiple lines ??
+" fallback for the buffer-specific options in ftplugin files
 nnoremap <leader>cc :<C-U> call CommentLine()<CR>
 nnoremap <leader>cu :<C-U> call UncommentLine()<CR>
 

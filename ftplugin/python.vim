@@ -5,3 +5,6 @@ setlocal softtabstop=4
 
 " comment symbol
 let b:left_comment_symbol="#"
+
+nnoremap <buffer> <leader>cc :<C-U> call CommentLine()<CR>
+nnoremap <buffer> <leader>cu :<C-U> call UncommentLine()<CR>

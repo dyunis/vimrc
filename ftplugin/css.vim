@@ -8,5 +8,5 @@ let b:left_comment_symbol="/*"
 let b:right_comment_symbol="*/"
 
 " in /plugin/comments.vim
-nnoremap <leader>cc :<C-U> call CommentBlock()<CR>
-nnoremap <leader>cu :<C-U> call UncommentBlock()<CR>
+nnoremap <buffer> <leader>cc :<C-U> call CommentBlock()<CR>
+nnoremap <buffer> <leader>cu :<C-U> call UncommentBlock()<CR>
