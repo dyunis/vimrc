@@ -12,6 +12,7 @@ autocmd BufNewFile,BufReadPre * let b:did_ftplugin = 1 " get rid of vim defaults
 " the below is because on opening a new .tex, vim thinks it's plaintex
 let g:tex_flavor='latex'
 
+" more general settings
 set expandtab " make tab key expand \t to spaces
 set autoindent " indent new line to same level as previous line
 set wrap " wrap text to new line after exceeding [textwidth]
@@ -21,6 +22,7 @@ set path+=** " tab completion for files in subdirs of current directory
 set formatoptions+=cro " enable autocommenting after o in normal, <Enter> in insert, comment wrapping
 set clipboard=unnamed " sync vim and system clipboard which is typically "+y 
 set backspace=indent,eol,start " backspace over everything in insert mode
+set tags=./tags " vim will search for tags in current dir, then in dir above, all the way up to root
 
 "statusline config
 set laststatus=2 " display statusline always
@@ -50,10 +52,6 @@ vnoremap kj <Esc>
 " if a very long line wraps, move visually without skipping the wrapped bit
 nnoremap j gj
 nnoremap k gk
-
-" highlight last inserted text
-" gv already displays last visual selection
-nnoremap gV `[v`]
 
 " unset the last search pattern highlighting in normal mode with return
 nnoremap <CR> :noh<CR>
