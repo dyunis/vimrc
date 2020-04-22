@@ -4,4 +4,4 @@ setlocal shiftwidth=2
 setlocal softtabstop=2
 
 " comment symbol for commenting macro
-let b:line_comment_symbol="//"
+let b:left_comment_symbol="//"

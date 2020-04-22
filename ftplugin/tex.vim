@@ -10,18 +10,18 @@ autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' 
 " latex snippets
 
 " latex skeleton
-nnoremap ,skl :-1read $HOME/.vim/snippets/latex/skeleton<CR>5j
+nnoremap <leader>skl :-1read $HOME/.vim/snippets/latex/skeleton<CR>5j
 " for align*
-nnoremap ,al :-1read $HOME/.vim/snippets/latex/align<CR>ji
+nnoremap <leader>al :-1read $HOME/.vim/snippets/latex/align<CR>ji
 " for anonymous equations (\[ \])
-nnoremap ,mm :-1read $HOME/.vim/snippets/latex/nolabel_math<CR>2la
+nnoremap <leader>mm :-1read $HOME/.vim/snippets/latex/nolabel_math<CR>2la
 " for itemize
-nnoremap ,it :-1read $HOME/.vim/snippets/latex/itemize<CR>jA
+nnoremap <leader>it :-1read $HOME/.vim/snippets/latex/itemize<CR>jA
 " for enumerate
-nnoremap ,en :-1read $HOME/.vim/snippets/latex/enumerate<CR>jA
+nnoremap <leader>en :-1read $HOME/.vim/snippets/latex/enumerate<CR>jA
 
 " comment symbol for commenting macro
-let b:line_comment_symbol="%"
+let b:left_comment_symbol="%"
 
 " works similar to the autocmd above, but latex needs pdflatex, bibtex, pdflatex
 " pdflatex in order to format bibliographies correctly, takes a while so
@@ -30,7 +30,7 @@ function CompileWithBibliography()
     silent! execute "!pdflatex -output-directory '%:p:h' %; bibtex '%:r'.aux; pdflatex -output-directory '%:p:h' %; pdflatex -output-directory '%:p:h' %" | redraw!
 endfunction
 
-function CleanBibliography()
+function RemoveBibliography()
    silent! execute "!rm '%:r'.bbl; rm '%:r'.blg" | redraw! 
 endfunction
 
@@ -39,6 +39,6 @@ function OpenPDF()
 endfunction
 
 " call function with leader key
-nnoremap ,b :call CompileWithBibliography()<CR>
-nnoremap ,cb :call CleanBibliography()<CR>
-nnoremap ,o :call OpenPDF()<CR>
+nnoremap <leader>b :call CompileWithBibliography()<CR>
+nnoremap <leader>rb :call RemoveBibliography()<CR>
+nnoremap <leader>o :call OpenPDF()<CR>

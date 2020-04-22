@@ -59,17 +59,6 @@ nnoremap <CR> :noh<CR>
 " remap leader from \ to , (easier to reach)
 let g:mapleader=","
 
-" line commenting macro
-function CommentLine ()
-    let cmd = ".,.+" . v:count . " norm 0i" . b:line_comment_symbol . " "
-    execute cmd
-endfunction
-
-function UncommentLine ()
-    let cmd = ".,.+" . v:count . " norm 02x"
-    execute cmd
-endfunction
-
 " the <C-U> is needed for some kind of issue when doing multiple lines ??
 nnoremap <leader>cc :<C-U> call CommentLine()<CR>
 nnoremap <leader>cu :<C-U> call UncommentLine()<CR>
@@ -80,4 +69,3 @@ let g:netrw_altv=1 " open vertical splits to the right (press v to open)
 let g:netrw_alto=1 " open horizontal splits below browser (press o to open)
 let g:netrw_liststyle=3 " opens as tree view
 let g:netrw_winsize=85 " 85% new window size for splits opened from file browser
-" :help netrw

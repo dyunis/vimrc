@@ -13,6 +13,12 @@ fi
 cp colors/* ~/.vim/colors
 echo "copied contents of colors to local ~/.vim/colors"
 
+if [ ! -d ~/.vim/plugin ]; then
+  mkdir -p ~/.vim/plugin
+fi
+cp ftplugin/* ~/.vim/plugin
+echo "copied contents of plugin to local ~/.vim/plugin"
+
 if [ ! -d ~/.vim/ftplugin ]; then
   mkdir -p ~/.vim/ftplugin
 fi
