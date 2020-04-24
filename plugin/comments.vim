@@ -7,7 +7,7 @@ endfunction
 
 function! UncommentLine()
   let pos = getpos(".")
-  execute ".,.+" . v:count . " normal! 0daw"
+  execute ".,.+" . v:count . " normal! 0diwx"
   call setpos(".", pos)
 endfunction
 
