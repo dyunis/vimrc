@@ -5,6 +5,7 @@ setlocal softtabstop=2
 
 " recompile latex document on write, stop compilation if there's an error
 " redraw redraws the screen to flush command output
+" possibilities: BufWritePost, InsertLeave, TextChanged, TextChangedI
 autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' %" | redraw!
 
 " latex snippets
@@ -15,6 +16,8 @@ nnoremap <leader>skl :-1read $HOME/.vim/snippets/latex/skeleton<CR>5j
 nnoremap <leader>al :-1read $HOME/.vim/snippets/latex/align<CR>ji
 " for anonymous equations (\[ \])
 nnoremap <leader>mm :-1read $HOME/.vim/snippets/latex/nolabel_math<CR>2la
+" for inline equations $ $
+nnoremap <leader>im a$$<Esc>hi
 " for itemize
 nnoremap <leader>it :-1read $HOME/.vim/snippets/latex/itemize<CR>jA
 " for enumerate
