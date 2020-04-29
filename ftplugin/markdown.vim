@@ -1,7 +1,7 @@
 " indentation settings required to make code blocks work
-setlocal tabstop=4
-setlocal shiftwidth=4
-setlocal softtabstop=4
+setlocal tabstop=2
+setlocal shiftwidth=2
+setlocal softtabstop=2
 
 " for display math context
 nnoremap <leader>mm :-1read $HOME/.vim/snippets/markdown/math_mode<CR>ji
