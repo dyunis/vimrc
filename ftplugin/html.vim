@@ -4,7 +4,7 @@ setlocal shiftwidth=2
 setlocal softtabstop=2
 
 " html skeleton
-nnoremap <leader>skl :-1read $HOME/.vim/snippets/html/skeleton.html<CR>4j
+nnoremap <leader>skl :-1read $HOME/.vim/snippets/html/skeleton<CR>4j
 
 " comment symbol
 let b:left_comment_symbol="<!--"
