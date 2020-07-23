@@ -12,3 +12,4 @@ let b:right_comment_symbol="-->"
 
 nnoremap <buffer> <leader>cc :<C-U> call CommentBlock()<CR>
 nnoremap <buffer> <leader>cu :<C-U> call UncommentBlock()<CR>
+nnoremap <leader>o :!open %<CR><CR>

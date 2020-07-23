@@ -73,6 +73,7 @@ let g:netrw_altv=1 " open vertical splits to the right (press v to open)
 let g:netrw_alto=1 " open horizontal splits below browser (press o to open)
 let g:netrw_liststyle=3 " opens as tree view
 let g:netrw_winsize=85 " 85% new window size for splits opened from file browser
+let g:netrw_browser_viewer='open' " gx will open files in external applications
 
 " strange stuff happens trying to :q! readonly netrw buffers
 autocmd FileType netrw setl bufhidden=delete

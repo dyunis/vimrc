@@ -32,7 +32,7 @@ cp -R snippets/* ~/.vim/snippets
 echo "copied contents of snippets to local ~/.vim/snippets"
 
 if [ ! -f ~/.tmux.conf ]; then
-  echo "~/.tmux.conf does not exist, using tmux.conf"
+  echo "~/.tmux.conf does not exist, creating tmux.conf"
   echo "# the following added by dyunis/vimrc/install.sh" > ~/.tmux.conf
 else
   echo "appending tmux.conf to ~/.tmux.conf"
