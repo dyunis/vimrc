@@ -23,6 +23,7 @@ set formatoptions+=cro " enable autocommenting after o in normal, <Enter> in ins
 set clipboard=unnamed " sync vim and system clipboard which is typically "+y 
 set backspace=indent,eol,start " backspace over everything in insert mode
 set tags=./tags; " vim will search for tags in current dir, then in dir above, all the way up to root
+set showcmd " shows command being typed in bottom right
 
 "statusline config
 set laststatus=2 " display statusline always
@@ -56,8 +57,8 @@ nnoremap k gk
 " unset the last search pattern highlighting in normal mode with return
 nnoremap <CR> :noh<CR>
 
-" remap leader from \ to , (easier to reach)
-let g:mapleader=","
+" remap leader from \ to , (easier to reach) (but , is so useful...)
+" let g:mapleader=","
 
 " base comment symbol
 let b:left_comment_symbol="//"
