@@ -28,6 +28,7 @@ set showcmd " shows command being typed in bottom right
 "statusline config
 set laststatus=2 " display statusline always
 set statusline=%F%h%r "filename, help, readonly
+set statusline+=%y " see the vim filetype (:set filetype?)
 set statusline+=%3.m " modified flag
 set statusline+=%= " right justified after this
 set statusline+=\ %3.l,%-3.c "line, column number
