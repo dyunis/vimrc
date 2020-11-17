@@ -79,3 +79,17 @@ let g:netrw_browser_viewer='open' " gx will open files in external applications
 
 " strange stuff happens trying to :q! readonly netrw buffers
 autocmd FileType netrw setl bufhidden=delete
+
+" netrw gx fails to open urls on mac, instead downloading the file, this is
+" a workaround from https://github.com/vim/vim/issues/4738
+if has('macunix')
+  function! OpenURLUnderCursor()
+    let s:uri = matchstr(getline('.'), '[a-z]*:\/\/[^ >,;()]*')
+    let s:uri = shellescape(s:uri, 1)
+    if s:uri != ''
+      silent exec "!open '".s:uri."'"
+      :redraw!
+    endif
+  endfunction
+  nnoremap gx :call OpenURLUnderCursor()<CR>
+endif
