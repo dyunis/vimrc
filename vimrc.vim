@@ -24,6 +24,8 @@ set clipboard=unnamed " sync vim and system clipboard which is typically "+y
 set backspace=indent,eol,start " backspace over everything in insert mode
 set tags=./tags; " vim will search for tags in current dir, then in dir above, all the way up to root
 set showcmd " shows command being typed in bottom right
+set undofile " persistent undo between settings
+set undodir=~/.vim/undohistory
 
 "statusline config
 set laststatus=2 " display statusline always

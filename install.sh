@@ -31,6 +31,11 @@ fi
 cp -R snippets/* ~/.vim/snippets
 echo "copied contents of snippets to local ~/.vim/snippets"
 
+if [ ! -d ~/.vim/undohistory ]; then
+  mkdir -p ~/.vim/undohistory
+fi
+echo "created dir for undo history at ~/.vim/undohistory"
+
 if [ ! -f ~/.tmux.conf ]; then
   echo "~/.tmux.conf does not exist, creating tmux.conf"
   echo "# the following added by dyunis/vimrc/install.sh" > ~/.tmux.conf
