@@ -50,4 +50,12 @@ echo "# makes tmux colors same as base terminal" >> ~/.tmux.conf
 echo "set -g default-terminal \"${TERM}\"" >> ~/.tmux.conf
 echo "appended to ~/.tmux.conf"
 
+echo "installing indentLine plugin (> vim 8.0) (https://github.com/Yggdroot/indentLine)"
+if [ -d ~/.vim/pack/vendor/start/indentLine ]; then
+  rm -rf ~/.vim/pack/vendor/start/indentLine
+fi
+git clone https://github.com/Yggdroot/indentLine.git ~/.vim/pack/vendor/start/indentLine
+vim -u NONE -c "helptags  ~/.vim/pack/vendor/start/indentLine/doc" -c "q"
+echo "finished installing indentLine"
+
 echo "finished all"
