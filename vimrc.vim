@@ -63,6 +63,8 @@ nnoremap <CR> :noh<CR>
 
 " remap leader from \ to , (easier to reach) (but , is so useful...)
 " let g:mapleader=","
+" remap leader to space
+map <Space> <leader>
 
 " base comment symbol
 let b:left_comment_symbol="//"
