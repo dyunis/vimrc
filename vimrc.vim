@@ -40,6 +40,7 @@ set statusline+=\ %-3.L "total lines in file
 
 " syntax and colors
 syntax on " enable syntax highlighting
+set smartcase " if lowercase, case-insensitive, if there's an uppercase match case
 set incsearch " enable incremental search highlighting as you type
 set hlsearch " enable last search highlighting
 colorscheme dim  " colorscheme in .vim/colors/
