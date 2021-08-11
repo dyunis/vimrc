@@ -26,6 +26,7 @@ set tags=./tags; " vim will search for tags in current dir, then in dir above, a
 set showcmd " shows command being typed in bottom right
 set undofile " persistent undo between settings
 set undodir=~/.vim/undohistory
+set scrolloff=3 " keeps 3 lines above/below cursor when scrolling
 
 "statusline config
 set laststatus=2 " display statusline always
