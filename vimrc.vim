@@ -68,7 +68,7 @@ nnoremap <CR> :noh<CR>
 map <Space> <leader>
 
 " base comment symbol
-let b:left_comment_symbol="//"
+let b:left_comment_symbol="#"
 
 " the <C-U> is needed for some kind of issue when doing multiple lines ??
 " fallback for the buffer-specific options in ftplugin files
