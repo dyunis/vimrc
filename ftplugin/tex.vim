@@ -17,7 +17,7 @@ nnoremap <leader>al :-1read $HOME/.vim/snippets/latex/align<CR>ji
 " for anonymous equations (\[ \])
 nnoremap <leader>mm :-1read $HOME/.vim/snippets/latex/nolabel_math<CR>2la
 " for inline equations $ $
-nnoremap <leader>im a$$<Esc>hi
+nnoremap <leader>im a$$<Esc>ha
 " for itemize
 nnoremap <leader>it :-1read $HOME/.vim/snippets/latex/itemize<CR>jA
 " for enumerate
