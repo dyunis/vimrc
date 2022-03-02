@@ -43,7 +43,7 @@ set statusline+=\ %-3.L "total lines in file
 syntax on " enable syntax highlighting
 set smartcase " if lowercase, case-insensitive, if there's an uppercase match case
 set incsearch " enable incremental search highlighting as you type
-set hlsearch " enable last search highlighting
+" set hlsearch " enable last search highlighting
 colorscheme dim  " colorscheme in .vim/colors/
 set background=dark " colorscheme mode
 set number " set absolute line numbering (outer)
@@ -60,12 +60,18 @@ nnoremap j gj
 nnoremap k gk
 
 " unset the last search pattern highlighting in normal mode with return
-nnoremap <CR> :noh<CR>
+" nnoremap <CR> :noh<CR>
 
 " remap leader from \ to , (easier to reach) (but , is so useful...)
 " let g:mapleader=","
 " remap leader to space
 map <Space> <leader>
+
+
+" from https://vi.stackexchange.com/questions/3875/how-to-insert-a-newline-without-leaving-normal-mode
+" "A solution [to inserting lines and staying in normal mode] that doesn't go through insert mode, doesn't move the cursor, and allows you to use a counter to append several lines at once (3 \ o etc.):
+nnoremap <silent> <leader>o :<C-u>call append(line("."), repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 " base comment symbol
 let b:left_comment_symbol="#"

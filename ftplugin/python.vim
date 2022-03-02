@@ -9,4 +9,7 @@ let b:left_comment_symbol="#"
 nnoremap <buffer> <leader>cc :<C-U> call CommentLine()<CR>
 nnoremap <buffer> <leader>cu :<C-U> call UncommentLine()<CR>
 nnoremap <buffer> <leader>db oimport pdb; pdb.set_trace()<Esc>
-nnoremap <buffer> <leader>o :!python %
+" nnoremap <buffer> <leader>o :!python %
+nnoremap <buffer> <leader>f8 :call flake8#Flake8()<CR>
+
+autocmd BufWritePost *.py call flake8#Flake8()
