@@ -43,6 +43,11 @@ if [ ! -d $install_dir/.vim/undohistory ]; then
 fi
 echo "created dir for undo history at $install_dir/.vim/undohistory"
 
+if [ ! -d $install_dir/.vim/backup ]; then
+  mkdir -p $install_dir/.vim/backup
+fi
+echo "created dir for undo history at $install_dir/.vim/backup"
+
 if [ ! -f $install_dir/.tmux.conf ]; then
   echo "$install_dir/.tmux.conf does not exist, creating tmux.conf"
   echo "# the following added by dyunis/vimrc/install.sh" > $install_dir/.tmux.conf
@@ -65,15 +70,14 @@ git clone https://github.com/Yggdroot/indentLine.git $install_dir/.vim/pack/vend
 vim -u NONE -c "helptags  $install_dir/.vim/pack/vendor/start/indentLine/doc" -c "q"
 echo "finished installing indentLine"
 
-if [ `pip show flake8 | grep -q 'Package(s) not found'` ]; then
-  pip install flake8
-fi
+# for python formatting
+pip install yapf
+pip install flake8
 echo "installing vim-flake8 plugin (> vim 8.0) (https://github.com/nvie/vim-flake8)"
 if [ -d $install_dir/.vim/pack/vendor/start/flake8 ]; then
   rm -rf $install_dir/.vim/pack/vendor/start/flake8
 fi
 git clone https://github.com/nvie/vim-flake8.git $install_dir/.vim/pack/vendor/start/flake8
-vim -u NONE -c "helptags  $install_dir/.vim/pack/vendor/start/flake8/doc" -c "q"
 echo "finished installing vim-flake8"
 
 echo "finished all"

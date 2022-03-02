@@ -28,6 +28,15 @@ set undofile " persistent undo between settings
 set undodir=~/.vim/undohistory
 set scrolloff=3 " keeps 3 lines above/below cursor when scrolling
 
+" From https://gist.github.com/nepsilon/003dd7cfefc20ce1e894db9c94749755
+" because yapf will overwite a python file if it has an error
+" From now on, each time you'll save a file (hit :w), Vim will save a copy in ~/.vim/backup/ with this syntax your-file.py@2016-10-25.14:58.
+set backup " turn on backup
+set backupdir=~/.vim/backup
+set writebackup " make backup before overwriting buffer
+set backupcopy=yes " overwrite original backup file
+au BufWritePre * let &bex = '@' . strftime("%F.%H:%M") " meaningful backup name, filename@2022-03-01.12:59
+
 "statusline config
 set laststatus=2 " display statusline always
 set statusline=%F%h%r "filename, help, readonly
