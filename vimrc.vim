@@ -27,6 +27,7 @@ set showcmd " shows command being typed in bottom right
 set undofile " persistent undo between settings
 set undodir=~/.vim/undohistory
 set scrolloff=3 " keeps 3 lines above/below cursor when scrolling
+set conceallevel=0 " don't convert latex to unicode chars \alpha -> α
 
 " From https://gist.github.com/nepsilon/003dd7cfefc20ce1e894db9c94749755
 " because yapf will overwite a python file if it has an error
