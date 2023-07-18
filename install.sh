@@ -69,15 +69,3 @@ fi
 git clone https://github.com/Yggdroot/indentLine.git $install_dir/.vim/pack/vendor/start/indentLine
 vim -u NONE -c "helptags  $install_dir/.vim/pack/vendor/start/indentLine/doc" -c "q"
 echo "finished installing indentLine"
-
-# for python formatting
-pip install yapf
-pip install flake8
-echo "installing vim-flake8 plugin (> vim 8.0) (https://github.com/nvie/vim-flake8)"
-if [ -d $install_dir/.vim/pack/vendor/start/flake8 ]; then
-  rm -rf $install_dir/.vim/pack/vendor/start/flake8
-fi
-git clone https://github.com/nvie/vim-flake8.git $install_dir/.vim/pack/vendor/start/flake8
-echo "finished installing vim-flake8"
-
-echo "finished all"
