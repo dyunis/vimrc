@@ -11,6 +11,7 @@ autocmd BufNewFile,BufReadPre * let b:did_ftplugin = 1 " get rid of vim defaults
 " currently configs for python/html/js/css/cpp/shell/latex 
 " the below is because on opening a new .tex, vim thinks it's plaintex
 let g:tex_flavor='latex'
+let g:tex_conceal='' " don't convert latex to unicode chars \alpha -> α
 
 " more general settings
 set expandtab " make tab key expand \t to spaces
@@ -27,7 +28,6 @@ set showcmd " shows command being typed in bottom right
 set undofile " persistent undo between settings
 set undodir=~/.vim/undohistory
 set scrolloff=3 " keeps 3 lines above/below cursor when scrolling
-set conceallevel=0 " don't convert latex to unicode chars \alpha -> α
 
 " From https://gist.github.com/nepsilon/003dd7cfefc20ce1e894db9c94749755
 " because yapf will overwite a python file if it has an error
