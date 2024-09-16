@@ -6,7 +6,7 @@ setlocal softtabstop=2
 " recompile latex document on write, stop compilation if there's an error
 " redraw redraws the screen to flush command output
 " possibilities: BufWritePost, InsertLeave, TextChanged, TextChangedI
-autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' %" | redraw!
+" autocmd BufWritePost *.tex silent! execute "!pdflatex -output-directory '%:p:h' %" | redraw!
 
 " latex snippets
 
@@ -29,6 +29,13 @@ let b:left_comment_symbol="%"
 nnoremap <buffer> <leader>cc :<C-U> call CommentLine()<CR>
 nnoremap <buffer> <leader>cu :<C-U> call UncommentLine()<CR>
 
+" works similar to the autocmd above
+" pdflatex in order to format bibliographies correctly, takes a while so
+" encapsulate in a function
+function! CompileWithoutBibliography()
+  silent! execute "!pdflatex -output-directory '%:p:h' %" | redraw!
+endfunction
+
 " works similar to the autocmd above, but latex needs pdflatex, bibtex, pdflatex
 " pdflatex in order to format bibliographies correctly, takes a while so
 " encapsulate in a function
@@ -45,6 +52,7 @@ function! OpenPDF()
 endfunction
 
 " call function with leader key
+nnoremap <leader>cm :call CompileWithoutBibliography()<CR>
 nnoremap <leader>b :call CompileWithBibliography()<CR>
 nnoremap <leader>rb :call RemoveBibliography()<CR>
 nnoremap <leader>o :call OpenPDF()<CR>

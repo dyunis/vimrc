@@ -13,6 +13,12 @@ autocmd BufNewFile,BufReadPre * let b:did_ftplugin = 1 " get rid of vim defaults
 let g:tex_flavor='latex'
 let g:tex_conceal='' " don't convert latex to unicode chars \alpha -> α
 
+" json concealing
+let g:vim_json_conceal=0  " don't conceal json chars
+" indentLine plugin sets conceallevel to 2
+" see https://stackoverflow.com/questions/40601818/vim-displays-json-file-without-any-quotes
+let g:indentLine_setConceal = 0
+
 " more general settings
 set expandtab " make tab key expand \t to spaces
 set autoindent " indent new line to same level as previous line
