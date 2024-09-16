@@ -69,3 +69,11 @@ fi
 git clone https://github.com/Yggdroot/indentLine.git $install_dir/.vim/pack/vendor/start/indentLine
 vim -u NONE -c "helptags  $install_dir/.vim/pack/vendor/start/indentLine/doc" -c "q"
 echo "finished installing indentLine"
+
+# install nvim and link to vimrc
+if [ ! -d ~/.config/nvim ]; then
+  mkdir -p ~/.config/nvim
+fi
+echo 'set runtimepath^=~/.vim runtimepath+=~/.vim/after' >> ~/.config/nvim/init.vim
+echo 'let &packpath=&runtimepath' >> ~/.config/nvim/init.vim
+echo 'source ~/.vimrc' >> ~/.config/nvim/init.vim
